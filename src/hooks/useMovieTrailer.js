@@ -3,7 +3,7 @@ import { addMovieTrailer } from "../utils/movieSlice";
 import { options } from "../utils/constants";
 import { useEffect } from "react";
 
-export const useMovieTrailer = ({id}) => {
+export const useMovieTrailer = (id) => {
   const dispatch = useDispatch();
   const getMovieTrailer = async () => {
     const data = await fetch(
@@ -11,8 +11,8 @@ export const useMovieTrailer = ({id}) => {
       options
     );
     const json = await data.json();
-    // console.log(json);
-    const trailerData = json.results.filter((val) => val.type == "Trailer");
+    console.log(json);
+    const trailerData = json && json.results.filter((val) => val.type == "Trailer");
     const trailer = trailerData.length ? trailerData[0] : json.results[0];
     dispatch(addMovieTrailer(trailer));
     // console.log(trailer);
