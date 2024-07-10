@@ -40,10 +40,11 @@ const Header = () => {
         alt="logo"
       ></img>
       {user && (
-        <div className="flex">
+        <div className="flex items-center">
+          <button className="text-white bg-purple-700 py-2 px-4 mr-8 rounded-md">Netflix - GPT</button>
           <div className="flex flex-col items-center mr-4">
             <img
-              className="w-12 h-12 "
+              className="w-12 h-12 rounded-md"
               src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             ></img>
             <p className="text-white font-bold">{user?.displayName}</p>
